@@ -26,12 +26,11 @@ public class CifradoCesar {
         int desplazo = scn.nextInt();
 
 
-
-        if(control.charAt(0) == 'c'){
+        if (control.charAt(0) == 'c') {
             String mensaje = Files.readString(rutaEntrada);
             String codificado = "";
-            for (int i = 0; i < mensaje.length();i++) {
-                int valorAscii = (int) mensaje.charAt(i);
+            for (int i = 0; i < mensaje.length(); i++) {
+                int valorAscii = mensaje.charAt(i);
                 codificado = codificado + (char) (valorAscii + desplazo);
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(args[0]));
@@ -40,11 +39,11 @@ public class CifradoCesar {
             Files.writeString(rutaSalida, codificado);
         }
 
-        if(control.charAt(0) == 'd'){
+        if (control.charAt(0) == 'd') {
             String mensaje = "";
             String codificado = Files.readString(rutaSalida);
-            for (int i = 0; i < codificado.length();i++) {
-                int valorAscii = (int) codificado.charAt(i);
+            for (int i = 0; i < codificado.length(); i++) {
+                int valorAscii = codificado.charAt(i);
                 mensaje = mensaje + (char) (valorAscii - desplazo);
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(args[1]));
